@@ -20,7 +20,7 @@ export class AppComponent {
   constructor(){
     this.tasks = [
       new Task("Create To-Do List app.", 0),
-      new Task("Learn Kung Fu to .", 1),
+      new Task("Learn Kung Fu to Discipline Cameron.", 1),
       new Task("Rewatch LOTR movies.", 2),
       new Task("Make Cameron Do the laundry.", 3)
     ];

@@ -1,13 +1,34 @@
 import { Component } from 'angular2/core';
 
 @Component({
-  selector: 'my-app', //names HTML tag
+  selector: 'my-app',
   template: `
     <div class="container">
-      <h1>Skeleton Angular2 App!</h1>
+      <h1>To-Do List</h1>
+      <h3 *ngFor="#task of tasks" (click)="taskWasSelected(task)">
+        {{ task.description }}
+      </h3>
     </div>
-  ` //Gives html to be displayed in this tag. `` allows multiple lines (feature of ES6)
+  `
 })
 export class AppComponent {
+  public tasks: Task[];
+  constructor(){
+    this.tasks = [
+      new Task("Create To-Do List app.", 0),
+      new Task("Learn Kung Fu.", 1),
+      new Task("Rewatch LOTR movies.", 2),
+      new Task("Make Cameron Do the laundry.", 3)
+    ];
+  }
+  taskWasSelected(clickedTask: Task): void {
+    console.log(clickedTask.description);
+  }
+}
 
+export class Task {
+  public done: boolean = false;
+  constructor(public description: string, public id: number) {
+
+  }
 }
